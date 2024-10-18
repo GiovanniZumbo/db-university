@@ -65,7 +65,7 @@ SELECT `students`.`name` as `nome`, `students`.`surname` as `cognome`, `degrees`
 FROM `students`
 INNER JOIN `degrees` ON `degrees`.`id` = `students`.`degree_id`
 INNER JOIN `departments` ON `departments`.`id` = `degrees`.`department_id`
-ORDER BY `cognome`;
+ORDER BY `cognome`, `nome`;
 
 
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
@@ -110,4 +110,4 @@ MIN(`exam_student`.`vote`) as `Voto_minimo`
 FROM `students`
 JOIN `exam_student` ON `students`.`id` = `exam_student`.`student_id`
 GROUP BY `students`.`id`
-HAVING `Voto_minimo` = 18;
+HAVING `Voto_minimo` >= 18;
